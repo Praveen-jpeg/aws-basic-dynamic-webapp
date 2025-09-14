@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> - Basic Dynamic App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Hello, <%= name %>!</h1>
+      <p>This is a basic dynamic Node.js + Express app deployed to AWS.</p>
+
+      <section class="card">
+        <h2>Dynamic Greeting</h2>
+        <form method="GET" action="/">
+          <label for="name">Enter your name:</label>
+          <input id="name" name="name" placeholder="Type a name" />
+          <button type="submit">Greet</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Useful Links</h2>
+        <ul>
+          <li><a href="/api/time">API: Current time (JSON)</a></li>
+          <li><a href="/user/Praveen">Dynamic route: /user/:name</a></li>
+          <li><a href="/health">Health check</a></li>
+          <li><a href="/feedback">Feedback</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/items">Items (CRUD)</a></li>
+        </ul>
+      </section>
+
+      <footer>
+        <small>Environment: <strong><%= env %></strong></small>
+      </footer>
+    </main>
+  </body>
+  </html>
+
+

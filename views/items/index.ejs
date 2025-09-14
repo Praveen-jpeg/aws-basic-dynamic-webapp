@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> - Items</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Items</h1>
+      <p><a href="/items/new">Create new item</a> · <a href="/">Home</a></p>
+      <% if (items.length === 0) { %>
+        <p>No items yet.</p>
+      <% } else { %>
+        <ul>
+          <% items.slice().reverse().forEach(function(it){ %>
+            <li>
+              <a href="/items/<%= it.id %>"><strong><%= it.title %></strong></a>
+              <small>· updated <%= it.updatedAtIso %></small>
+            </li>
+          <% }); %>
+        </ul>
+      <% } %>
+    </main>
+  </body>
+  </html>
+
+

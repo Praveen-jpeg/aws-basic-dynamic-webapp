@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Edit Item</h1>
+      <form method="POST" action="/items/<%= item.id %>?_method=PUT" class="card">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <input name="title" value="<%= item.title %>" required />
+          <textarea name="content" rows="6" style="padding:10px; border-radius:8px; border:1px solid #2a3350; background:#131a33; color:#e6e9ef;"><%= item.content %></textarea>
+          <div>
+            <button type="submit">Save</button>
+            <a href="/items/<%= item.id %>" style="margin-left:8px;">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+  </html>
+
+

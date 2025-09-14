@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1><%= item.title %></h1>
+      <p><small>Created: <%= item.createdAtIso %> · Updated: <%= item.updatedAtIso %></small></p>
+      <section class="card">
+        <pre style="white-space:pre-wrap;"><%= item.content %></pre>
+      </section>
+      <p>
+        <a href="/items">Back</a> ·
+        <a href="/items/<%= item.id %>/edit">Edit</a>
+      </p>
+      <form method="POST" action="/items/<%= item.id %>?_method=DELETE" onsubmit="return confirm('Delete this item?');">
+        <button type="submit" style="background:#8b1e1e; border-color:#c23b3b;">Delete</button>
+      </form>
+    </main>
+  </body>
+  </html>
+
+

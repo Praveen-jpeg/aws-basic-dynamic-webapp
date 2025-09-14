@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> - Basic Dynamic App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Feedback</h1>
+
+      <section class="card" style="margin-bottom:16px;">
+        <form method="POST" action="/feedback">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <input name="name" placeholder="Your name (optional)" />
+            <input name="message" placeholder="Your feedback" style="min-width:260px; width:60%;" />
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Recent Feedback</h2>
+        <% if (items.length === 0) { %>
+          <p>No feedback yet. Be the first!</p>
+        <% } else { %>
+          <ul>
+            <% items.slice().reverse().forEach(function(it){ %>
+              <li>
+                <strong><%= it.name %></strong> · <small><%= it.createdAtIso %></small><br />
+                <span><%= it.message %></span>
+              </li>
+            <% }); %>
+          </ul>
+        <% } %>
+      </section>
+
+      <p style="margin-top:12px;"><a href="/">Home</a> · <a href="/about">About</a></p>
+    </main>
+  </body>
+  </html>
+
+
