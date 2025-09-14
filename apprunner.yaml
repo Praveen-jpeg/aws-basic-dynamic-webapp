@@ -1,12 +1,10 @@
 version: 1.0
-runtime: docker
+runtime: nodejs18
 build:
   commands:
     build:
-      - echo "Building the application..."
-      - echo "Build completed on `date`"
+      - npm install
 run:
-  runtime-version: latest
   command: node src/index.js
   network:
     port: 3000
